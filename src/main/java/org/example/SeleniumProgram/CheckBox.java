@@ -1,6 +1,8 @@
 package org.example.SeleniumProgram;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class CheckBox {
@@ -13,6 +15,7 @@ public class CheckBox {
 
         driver.manage().window().maximize();
 
+        WebElement homeCheckBoxElement = driver.findElement(By.xpath(""));
 
     }
 }
