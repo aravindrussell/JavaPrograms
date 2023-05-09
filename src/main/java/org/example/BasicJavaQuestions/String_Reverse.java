@@ -2,18 +2,22 @@ package org.example.BasicJavaQuestions;
 
 public class String_Reverse {
 
-    public static void main(String ags[]) {
+    public static void main(String[] ags) {
 
-        String str = "Geeks", nstr = "";
+        String_Reverse string_reverse = new String_Reverse();
+        String orgString = "Russell";
+        System.out.println("Original String : " + orgString);
+
+        System.out.println("Reverse String : " + string_reverse.reverseGivenString(orgString));
+    }
+
+    public String reverseGivenString(String value){
         char ch;
-
-        System.out.print("Original word: ");
-        System.out.println("Geeks"); //Example word
-
-        for (int i = 0; i < str.length(); i++) {
-            ch = str.charAt(i); //extracts each character
-            nstr = ch + nstr; //adds each character in front of the existing string
+        String reverseString = "";
+        for (int i=0; i < value.length(); i++){
+            ch = value.charAt(i);
+            reverseString = ch + reverseString;
         }
-        System.out.println("Reversed word: " + nstr);
+        return reverseString;
     }
 }
