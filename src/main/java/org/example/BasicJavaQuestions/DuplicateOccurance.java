@@ -15,7 +15,6 @@ public class DuplicateOccurance {
         for (Map.Entry<Character, Integer> entry : entrySet) {
             System.out.printf("%s : %d %n ", entry.getKey(), entry.getValue());
         }
-
     }
 
     public static List<Character> convertStringToCharList(String value){
@@ -71,10 +70,8 @@ public class DuplicateOccurance {
         list.add("a");
         list.add("a");
         list.add("a");
-
         int countA = Collections.frequency(list, "a");
         int countB = Collections.frequency(list, "b");
         int countC = Collections.frequency(list, "c");
     }
-
 }

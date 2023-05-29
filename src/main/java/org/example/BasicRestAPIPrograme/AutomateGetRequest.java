@@ -1,6 +1,5 @@
-package org.example.RestAPIPrograme;
+package org.example.BasicRestAPIPrograme;
 
-import com.google.common.annotations.VisibleForTesting;
 import io.restassured.response.Response;
 import org.junit.Test;
 
