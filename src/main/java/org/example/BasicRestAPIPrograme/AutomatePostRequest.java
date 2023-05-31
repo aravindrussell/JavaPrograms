@@ -5,7 +5,7 @@ import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
 
-public class AutomateGetRequest {
+public class AutomatePostRequest {
 
     @Test
     public void authToken() {
@@ -25,6 +25,19 @@ public class AutomateGetRequest {
 
         String getToken =  response.jsonPath().getString("token");
         System.out.println(getToken);
+    }
+
+    @Test
+    public void getBookingIDs(){
+        int bookingid =
+                given().baseUri("https://restful-booker.herokuapp.com").
+                    contentType("application/json").
+                when().
+                    get("/booking").
+                then().
+                    extract().response().path("bookingid[0]");
+
+        System.out.println("Booking ID is : " + bookingid);
     }
 
 }
