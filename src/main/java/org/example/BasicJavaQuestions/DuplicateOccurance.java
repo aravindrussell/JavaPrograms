@@ -18,9 +18,14 @@ public class DuplicateOccurance {
     }
 
     public static List<Character> convertStringToCharList(String value){
+
         List<Character> charList = new ArrayList<>();
-        for (char ch : value.toCharArray()){
-            charList.add(ch);
+        try {
+            for (char ch : value.toCharArray()) {
+                charList.add(ch);
+            }
+        }catch (Exception e){
+            System.out.println(e.getMessage());
         }
         return charList;
     }
