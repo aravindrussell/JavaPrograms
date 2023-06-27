@@ -10,7 +10,7 @@ public class DuplicateOccurance {
 
 //        duplicateOccurance.integerListDupOccurance();
 
-        Map<Character, Integer> dupOccurance = duplicateOccurance.stringCharDupOccurance("aaasssdfghtjubnqqqwwercccvvvbbasdert");
+        Map<Character, Integer> dupOccurance = duplicateOccurance.stringCharDupOccurance("Gain%%^$&Techn^&^&");
         Set<Map.Entry<Character, Integer>> entrySet = dupOccurance.entrySet();
         for (Map.Entry<Character, Integer> entry : entrySet) {
             System.out.printf("%s : %d %n ", entry.getKey(), entry.getValue());

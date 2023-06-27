@@ -4,20 +4,32 @@ import io.restassured.RestAssured;
 import io.restassured.http.Method;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
-import org.openqa.selenium.devtools.v110.fetch.model.AuthChallengeResponse;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+import java.util.*;
 
 public class RestAssuredAPITest {
 
-    public static void main (String args[]){
-
+    public static void main (String args[]) throws ParseException {
         RestAssured.baseURI = "https://demoqa.com/BookStore/v1/Books";
-
         RequestSpecification requestSpecification = RestAssured.given();
-
         Response response = requestSpecification.request(Method.GET,"");
-
-        System.out.println("Responce Code --> " + response.getStatusCode());
-        System.out.println("Responce --> " + response.prettyPrint());
+        List<String> bookTitleList = new ArrayList<>();
+        String books = response.getBody().asString();
+        JSONParser jsonParser = new JSONParser();
+        JSONObject jsonObject = (JSONObject) jsonParser.parse(books);
+        JSONArray jsonArray = (JSONArray) jsonObject.get("books");
+        Iterator iterator = jsonArray.iterator();
+        Map<String,String> bookDetailsMap = new HashMap<>();
+        while (iterator.hasNext()){
+            Iterator iterator1 = ((Map) iterator.next()).entrySet().iterator();
+            while (iterator1.hasNext()){
+                Map.Entry bookdetails = (Map.Entry) iterator1.next();
+                bookDetailsMap.put(bookdetails.getKey().toString(),bookdetails.getValue().toString());
+            }
+            bookTitleList.add(bookDetailsMap.get("title"));
+        }
     }
-
 }
