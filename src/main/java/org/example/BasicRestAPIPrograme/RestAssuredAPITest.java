@@ -23,13 +23,19 @@ public class RestAssuredAPITest {
         JSONArray jsonArray = (JSONArray) jsonObject.get("books");
         Iterator iterator = jsonArray.iterator();
         Map<String,String> bookDetailsMap = new HashMap<>();
+        List<Map<String,String>> fullBookDetails = new LinkedList<>();
         while (iterator.hasNext()){
             Iterator iterator1 = ((Map) iterator.next()).entrySet().iterator();
             while (iterator1.hasNext()){
                 Map.Entry bookdetails = (Map.Entry) iterator1.next();
                 bookDetailsMap.put(bookdetails.getKey().toString(),bookdetails.getValue().toString());
+                fullBookDetails.add(bookDetailsMap);
             }
             bookTitleList.add(bookDetailsMap.get("title"));
         }
+        System.out.println(bookTitleList);
+        System.out.println(bookTitleList.size());
+        System.out.println(fullBookDetails.size());
+        System.out.println(fullBookDetails);
     }
 }

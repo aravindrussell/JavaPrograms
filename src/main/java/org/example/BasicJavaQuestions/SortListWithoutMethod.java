@@ -3,7 +3,7 @@ package org.example.BasicJavaQuestions;
 public class SortListWithoutMethod {
 
     public static void main(String[] args) {
-        Integer[] list = {3, 5, 100, 8, 17, 19};
+        Integer[] list = {-1,0,-2,-3,3, 5, 100, 8, 17, 19};
 
         for (int i = 0; i < list.length; i++) {
 

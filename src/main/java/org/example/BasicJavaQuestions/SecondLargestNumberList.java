@@ -1,27 +1,36 @@
 package org.example.BasicJavaQuestions;
 
-import java.util.Arrays;
+import java.util.*;
 
 public class SecondLargestNumberList {
-    static void print2largest(int arr[], int arr_size) {
+    static int print2largest(int arr[]) {
         int i, first, second;
-        if (arr_size < 2) {
+        if (arr.length < 2) {
             System.out.print(" Invalid Input ");
-            return;
         }
         Arrays.sort(arr);
-        for (i = arr_size - 2; i >= 0; i--) {
-            if (arr[i] != arr[arr_size - 1]) {
-                System.out.printf("The second largest " + "element is %d\n", arr[i]);
+        int secondLargestNumber = 0;
+        for (i = arr.length - 2; i >= 0; i--) {
+            if (arr[i] != arr[arr.length - 1]) {
+                secondLargestNumber = arr[i];
                 break;
             }
         }
-        System.out.print("There is no second " + "largest element\n");
+        return secondLargestNumber;
+    }
+
+    public static Integer SecondLargestNumberUsingSet(Integer arr[]){
+        List<Integer> arrList = Arrays.asList(arr);
+        Collections.sort(arrList);
+        Set arrSets = new LinkedHashSet<>(arrList);
+        List<Integer> arrListSort = new LinkedList<>(arrSets);
+        return arrListSort.get(arrListSort.size() - 2);
     }
 
     public static void main(String[] args) {
-        int arr[] = {12, 35, 1, 0, 34, 10, 34, 1};
-        int n = arr.length;
-        print2largest(arr, n);
+        int arr[] = {-12, -35, -1, 0, -34, -10, -34, -1};
+        System.out.println("Second largest number : " + print2largest(arr));
+        Integer arrList[] = Arrays.stream(arr).boxed().toArray(Integer[]::new);
+        System.out.println("Second largest number : " + SecondLargestNumberUsingSet(arrList));
     }
 }

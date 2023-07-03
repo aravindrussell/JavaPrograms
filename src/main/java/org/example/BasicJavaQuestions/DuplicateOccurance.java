@@ -10,33 +10,51 @@ public class DuplicateOccurance {
 
 //        duplicateOccurance.integerListDupOccurance();
 
-        Map<Character, Integer> dupOccurance = duplicateOccurance.stringCharDupOccurance("Gain%%^$&Techn^&^&");
+        Map<Character, Integer> dupOccurance = duplicateOccurance.stringCharWithCaseDupOccurance("AaBbCCcDDdFfEEEeee");
         Set<Map.Entry<Character, Integer>> entrySet = dupOccurance.entrySet();
+
         for (Map.Entry<Character, Integer> entry : entrySet) {
             System.out.printf("%s : %d %n ", entry.getKey(), entry.getValue());
         }
     }
 
-    public static List<Character> convertStringToCharList(String value){
+    public static List<Character> convertStringToCharList(String value) {
 
         List<Character> charList = new ArrayList<>();
         try {
             for (char ch : value.toCharArray()) {
                 charList.add(ch);
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
         return charList;
     }
 
-    public Map<Character, Integer> stringCharDupOccurance(String dupCharString){
+    public Map<Character, Integer> stringCharDupOccurance(String dupCharString) {
 
         List<Character> stringOfCharList = convertStringToCharList(dupCharString);
-        Map<Character,Integer> mapOccurance = new HashMap<>();
+        Map<Character, Integer> mapOccurance = new HashMap<>();
 
         for (Character num : stringOfCharList) {
             if (mapOccurance.containsKey(num)) {
+                mapOccurance.put(num, mapOccurance.get(num) + 1);
+            } else {
+                mapOccurance.put(num, 1);
+            }
+        }
+        return mapOccurance;
+    }
+
+    public Map<Character, Integer> stringCharWithCaseDupOccurance(String dupCharString) {
+
+        List<Character> stringOfCharList = convertStringToCharList(dupCharString);
+        Map<Character, Integer> mapOccurance = new HashMap<>();
+
+        for (char num : stringOfCharList) {
+            if (mapOccurance.containsKey(num) && Character.isUpperCase(num)) {
+                mapOccurance.put(num, mapOccurance.get(num) + 1);
+            } else if (mapOccurance.containsKey(num) && Character.isLowerCase(num)) {
                 mapOccurance.put(num, mapOccurance.get(num) + 1);
             } else {
                 mapOccurance.put(num, 1);

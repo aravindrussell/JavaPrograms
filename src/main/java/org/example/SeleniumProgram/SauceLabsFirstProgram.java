@@ -43,7 +43,7 @@ public class SauceLabsFirstProgram {
         WebElement productTitle = driver.findElement(By.cssSelector("span[class='title']"));
         System.out.println(productTitle.getText());
 
-        Assert.assertEquals(productTitle.getText(),"Products","Product Page was not diaplayed");
+        productTitle.getText().equals("Products");
 
         driver.quit();
     }

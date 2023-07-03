@@ -11,7 +11,7 @@ public class RemoveSpecialCharater {
 
         String asd = "Aravind123Russell456is789interview";
 
-        String q = asd.replaceAll("[^0-9]","");
+        String q = asd.replaceAll("[^A-Za-z0-9]","");
         char a[] = q.toCharArray();
         System.out.println(q);
 
