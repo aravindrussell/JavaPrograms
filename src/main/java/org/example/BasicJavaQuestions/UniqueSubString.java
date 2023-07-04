@@ -1,16 +1,17 @@
 package org.example.BasicJavaQuestions;
 
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class UniqueSubString {
 
 
     public static void main (String args[]){
-        String s = "zyzyzyz";
+        String s = "abaaba";
         System.out.println(UniqueSubString.distinctSubString(s));
+    }
+
+    public static void getUniqueValueInList(){
+
     }
 
     public static Integer distinctSubString(String str){

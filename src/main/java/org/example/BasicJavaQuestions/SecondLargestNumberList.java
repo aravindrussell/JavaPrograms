@@ -19,6 +19,18 @@ public class SecondLargestNumberList {
         return secondLargestNumber;
     }
 
+    public static int SecondLargestNumber(int numberArray[]){
+        Arrays.sort(numberArray);
+        int secondLargeNumber = 0;
+        for (int i=numberArray.length-2; i>=0; i--){
+            if (numberArray[i] != numberArray[numberArray.length -1]){
+                secondLargeNumber = numberArray[i];
+                break;
+            }
+        }
+        return secondLargeNumber;
+    }
+
     public static Integer SecondLargestNumberUsingSet(Integer arr[]){
         List<Integer> arrList = Arrays.asList(arr);
         Collections.sort(arrList);
@@ -29,7 +41,7 @@ public class SecondLargestNumberList {
 
     public static void main(String[] args) {
         int arr[] = {-12, -35, -1, 0, -34, -10, -34, -1};
-        System.out.println("Second largest number : " + print2largest(arr));
+        System.out.println("Second largest number : " + SecondLargestNumber(arr));
         Integer arrList[] = Arrays.stream(arr).boxed().toArray(Integer[]::new);
         System.out.println("Second largest number : " + SecondLargestNumberUsingSet(arrList));
     }
