@@ -1,7 +1,6 @@
 package org.example.FileHandleFunctions;
 
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.FileWriter;
 
 public class ExampleJavaFileWrite {
