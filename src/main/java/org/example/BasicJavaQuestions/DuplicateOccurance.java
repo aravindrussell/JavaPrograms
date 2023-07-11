@@ -7,15 +7,32 @@ public class DuplicateOccurance {
     public static DuplicateOccurance duplicateOccurance = new DuplicateOccurance();
 
     public static void main(String[] args) {
+//        Map<Character, Integer> dupOccurance = duplicateOccurance.stringCharWithCaseDupOccurance("AaBbCCcDDdFfEEEeee");
+//        Set<Map.Entry<Character, Integer>> entrySet = dupOccurance.entrySet();
+//
+//        for (Map.Entry<Character, Integer> entry : entrySet) {
+//            System.out.printf("%s : %d %n ", entry.getKey(), entry.getValue());
+//        }
 
-//        duplicateOccurance.integerListDupOccurance();
+        duplicateCharWithoutHashMap("Aravind Russell V");
+    }
 
-        Map<Character, Integer> dupOccurance = duplicateOccurance.stringCharWithCaseDupOccurance("AaBbCCcDDdFfEEEeee");
-        Set<Map.Entry<Character, Integer>> entrySet = dupOccurance.entrySet();
+    public static void duplicateCharWithoutHashMap(String value){
+        int count=0;
+        char valueString[] = value.toCharArray();
 
-        for (Map.Entry<Character, Integer> entry : entrySet) {
-            System.out.printf("%s : %d %n ", entry.getKey(), entry.getValue());
+        for (int i=0;i<valueString.length;i++){
+            count = 1;
+            for (int j=i+1;j<=valueString.length;i++){
+                if (valueString[i]==valueString[j] && valueString[i] != ' '){
+                    count++;
+                    valueString[j] = '0';
+                }
+            }
+//            if(count > 1 && valueString[i] != '0')
+//                System.out.println(valueString[i]);
         }
+        System.out.println(valueString);
     }
 
     public static List<Character> convertStringToCharList(String value) {
